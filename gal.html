@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Gallery</title>
+
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    nav{
+            display: flex;
+            background-color: rgb(35, 34, 34);
+            padding-top:20px;
+            padding-bottom: 20px;
+            
+        }
+        nav img{
+            margin-left: 20px;
+            height: 60px;
+            width: 80px;
+        }
+        nav img:hover {
+            color:  green;filter: brightness(2);
+
+        }     
+         nav ul{
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding-left: 400px;
+            overflow: hidden;   
+         }
+         nav ul li{
+            float: left;
+            font-size: 20px;
+            padding-top:30px;
+         }
+         nav ul li a{
+            
+            margin-bottom: 20px;
+            color: white;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+           
+         }
+         
+         nav ul li a:hover {
+            color: green;filter: brightness(2);
+         }
+    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color: rgb(196, 199, 155)
+}
+.heading{
+    margin: 10px;
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.heading h1{
+    color: linear-gradient(90deg,rgba(114, 42, 155, 1) 0%, rgba(68, 207, 156, 1) 50%, rgba(83, 211, 237, 1) 100%);
+    text-shadow: 3px 3px gray;
+
+
+}
+.heading h2{
+    color: linear-gradient(90deg,rgba(114, 42, 155, 1) 0%, rgba(68, 207, 156, 1) 50%, rgba(83, 211, 237, 1) 100%);
+    text-shadow: 3px 3px gray;
+
+
+}
+
+
+
+.carousel{
+    width: 80vw;
+    height: 85vh;
+    margin-top: 20px;
+    margin-left:125px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px 20px;
+    
+    
+}
+
+.carousel .list .item{
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translatey(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size:cover;
+    z-index: 100;
+    transition: 1s;
+    
+}
+
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .list .item:nth-child(3){
+    left: 67%;
+}
+
+.carousel .list .item:nth-child(4){
+    left: calc(67% + 200px);
+}
+
+.carousel .list .item:nth-child(5){
+    left: calc(67% + 400px);
+}
+
+.carousel .list .item:nth-child(6){
+    left: calc(67% + 600px);
+}
+
+.carousel .list .item:nth-child(n+7){
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+
+
+
+
+
+
+.list .item:nth-child(2) .content{
+    display: block;
+}
+
+
+
+
+.content .btn button:nth-child(1){
+    margin-right: 15px;
+}
+
+.content .btn button:nth-child(2){
+    background: transparent;
+    color: #14ff72cb;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.content .btn button:nth-child(2):hover{
+    background-color: #14ff72cb;
+    color: #fff;
+    border-color: #14ff72cb;
+}
+
+
+@keyframes animate {
+    
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* Carousel */
+
+
+
+
+
+
+/* next prev arrows */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.arrows button:hover{
+    background: #fff;
+    color: #000;
+}
+
+
+/* time running */
+.carousel .timeRunning{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: rgb(247, 243, 243);
+    left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
+}
+
+@keyframes runningTime {
+    
+    from{width: 0%;}
+    to{width: 100%;}
+
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 999px){
+    
+    header{
+        padding-left: 50px;
+    }
+
+    .list .item .content{
+        left: 50px;
+    }
+
+    .content .title, .content .name{
+        font-size: 70px;
+    }
+
+    .content .des{
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 690px){
+    header nav a{
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list .item .content{
+        top: 40%;
+    }
+}
+.footer{
+            margin-top: 80px;
+            display: flex;
+            background-color: rgb(35, 34, 34);
+            color: white;        
+            justify-content: space-around;
+            padding-bottom: 80px;
+            
+            
+        }
+        .footer1{
+            background-color: rgb(35, 34, 34);
+            color: green;
+            padding-left: 60px;
+            padding-top: 35px;
+            
+        }
+        .footer1 h4{color: white;
+        }
+       
+        .footer1 img:hover{
+            color: green; filter: brightness(2);
+        }
+         .footer1 i{
+            font-size: 30px;
+            padding-left: 20px;
+            color:green;
+        }
+
+       .footer1 i:hover {
+            color:green; filter: brightness(2);
+        }
+        .footer2{
+            margin-top: 40px;
+        }
+        .footer2 i{
+            padding-top: 20px;
+        }
+        .footer2 h2{
+            color: green; filter: brightness(2);
+        }
+        .footer3{
+            margin-top: 40px;
+           
+        }
+        .footer3 h2{
+            color: green; filter: brightness(2);
+        }
+      
+        .footer4 i{
+            padding-top: 20px;
+            font-size: 30px;
+            padding-left: 100px;
+        }
+        .footer4 h2{
+            color: green; filter: brightness(2);
+            padding-left: 20px;
+        }
+        .address{
+            padding-left: 160px;
+        }
+       .call{
+            display: flex;
+            justify-content: space-around;
+
+        }
+        .address h2{
+            color: green; filter: brightness(2);
+        }
+         .location{
+            display: flex;
+         }
+        .location i{
+            padding-left: 30px;
+            
+            
+        }
+        .location h4{
+            
+            padding-left: 50px;
+
+        }
+        .call{
+            display: flex;
+            padding-top: 30px;
+            
+        }
+        .call i{
+            padding-left: 30px;
+            padding-top: 10px;
+        }
+        .end{
+            background-color: rgb(35, 34, 34);
+            color: white;
+            padding-top: 60px;
+            padding-bottom: 60px;
+
+        }
+    
+    </style>
+</head>
+    
+
+
+
+<body>
+    
+    <nav>
+        <img src="gallery_images/logos.png" alt="" height="60px" width="60px"  >
+         
+        <ul>
+            <b>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./courses.html">Courses</a></li>
+                <li><a href="./service.html">Services</a></li>
+                <li><a href="./placement.html">Placement</a></li>
+                <li><a href="./gal.html">Gallery</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </b>
+        </ul>
+    </nav> 
+
+<!-- <div class="container">
+    <div class="heading">
+     <h1><center>Aruvi Institute Of Learning </center></h1>
+       <h2><center>1st convocation day 2021 </center></h2>
+    </div>    
+    <div class="carousel">     
+        <div class="list">
+
+            <div class="item" style="background-image: url();">
+                <div class="content">
+                    <div class="btn">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+                    <div class="btn">
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url();">
+
+                <div class="content">
+
+                    <div class="btn">
+
+                    </div>
+                    
+
+            </div>
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+
+                    <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+
+                   <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+
+                    </div>
+                        
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url();">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                    
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>-->
+
+        <!--next prev button-->
+        <!-- <div class="arrows">
+            <button class="prev"><</button>
+            <button class="next">></button>
+        </div> -->
+
+        <!-- time running -->
+        <!-- <div class="timeRunning"></div>
+
+    </div> 
+</div> --> 
+<div class="container">
+    <div class="heading">
+     <h1><center>Aruvi Institute Of Learning </center></h1>
+       <h2><center>2nd convocation day 2022 </center></h2></div>    
+    <div class="carousel">     
+        <div class="list">
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08094.JPG);">
+                <div class="content">
+                    <div class="btn">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08099.JPG);">
+                
+                <div class="content">
+                    <div class="btn">
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08178.JPG);">
+
+                <div class="content">
+
+                    <div class="btn">
+
+                    </div>
+                    
+
+            </div>
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08240.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08246.JPG);">
+                
+                <div class="content">
+
+                    <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08254.JPG);">
+                
+                <div class="content">
+
+                   <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08261.JPG);">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08266.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/DSC08271.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+
+                    </div>
+                        
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/Preetha.JPG);">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c2/Shalini.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                    
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--next prev button-->
+        <div class="arrows">
+            <button class="prev"><</button>
+            <button class="next">></button>
+        </div>
+
+        <!-- time running -->
+        <div class="timeRunning"></div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="heading">
+     <h1><center>Aruvi Institute Of Learning </center></h1>
+       <h2><center>3rd convocation day 2023 </center></h2></div>    
+    <div class="carousel">     
+        <div class="list">
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3560.JPG);">
+                <div class="content">
+                    <div class="btn">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3574.JPG);">
+                
+                <div class="content">
+                    <div class="btn">
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3584.JPG);">
+
+                <div class="content">
+
+                    <div class="btn">
+
+                    </div>
+                    
+
+            </div>
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3625.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3629.JPG);">
+                
+                <div class="content">
+
+                    <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3634.JPG);">
+                
+                <div class="content">
+
+                   <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3636.JPG);">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3637.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3638.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+
+                    </div>
+                        
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3639.JPG);">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c3/IMG_3640.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                    
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--next prev button-->
+        <div class="arrows">
+            <button class="prev"><</button>
+            <button class="next">></button>
+        </div>
+
+        <!-- time running -->
+        <div class="timeRunning"></div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="heading">
+     <h1><center>Aruvi Institute Of Learning </center></h1>
+       <h2><center>4th convocation day 2024 </center></h2></div>    
+    <div class="carousel">     
+        <div class="list">
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4868.JPG);">
+                <div class="content">
+                    <div class="btn">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4899.JPG);">
+                
+                <div class="content">
+                    <div class="btn">
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4901.JPG);">
+
+                <div class="content">
+
+                    <div class="btn">
+
+                    </div>
+                    
+
+            </div>
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4906.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4910.JPG);">
+                
+                <div class="content">
+
+                    <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4911.JPG);">
+                
+                <div class="content">
+
+                   <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4912.JPG);">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4918.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4924.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+
+                    </div>
+                        
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4928.JPG);">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c4/IMG_4934.JPG);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                    
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--next prev button-->
+        <div class="arrows">
+            <button class="prev"><</button>
+            <button class="next">></button>
+        </div>
+
+        <!-- time running -->
+     <div class="timeRunning"></div>
+
+    </div> 
+</div>
+<div class="container">
+    <div class="heading">
+     <h1><center>Aruvi Institute Of Learning </center></h1>
+       <h2><center>5th convocation day 2025 </center></h2></div>    
+    <div class="carousel">     
+        <div class="list">
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0132.jpg);">
+                <div class="content">
+                    <div class="btn">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0134.jpg);">
+                
+                <div class="content">
+                    <div class="btn">
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0135.jpg);">
+
+                <div class="content">
+
+                    <div class="btn">
+
+                    </div>
+                    
+
+            </div>
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0136.jpg);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0138.jpg);">
+                
+                <div class="content">
+
+                    <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0140.jpg);">
+                
+                <div class="content">
+
+                   <div class="btn">
+                    
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0142.jpg);">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0144.jpg);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0146.jpg);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+
+                    </div>
+                        
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0149.jpg);">
+                
+                <div class="content">
+                   
+                    <div class="btn">
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item" style="background-image: url(gallery_images/c5/IMG_0151.jpg);">
+                
+                <div class="content">
+                    
+                    <div class="btn">
+                    
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--next prev button-->
+        <div class="arrows">
+            <button class="prev"><</button>
+            <button class="next">></button>
+        </div>
+
+        <!-- time running -->
+        <div class="timeRunning"></div>
+
+    </div>
+</div>
+
+
+    <script src="gal.js"></script>
+    <div class="footer">
+        <div class="footer1">
+            <h2 style="color: green;filter: brightness(2);">Aruvi Institue Of Learning</h2><br>
+            <h4>We are specialized in designings and  makes <br>your business a brand.Try our premium services.</h4>
+             <img src="gallery_images/logos.png" height="60px" width="60px" alt=""  >
+             <a href="https://www.facebook.com/aruviinstitute.tenkasi"><i class="fa-brands fa-facebook"></i></a>
+             <a href="https://www.instagram.com/aruvi_python_learning/?utm_medium=copy_link"><i class="fa-brands fa-instagram"></i></a>
+             <a href="https://www.youtube.com/c/AruviTechNews"><i class="fa-brands fa-youtube"></i></a>
+             <a href="https://x.com/AruviOf"><i class="fa-brands fa-x-twitter"></i></a>
+             <a href="https://aruviinstituteoflearning.com/services#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <div class="footer2">
+            <h2>Services</h2><br>
+            <h4>Internship</h4>
+            <h4>Web Design</h4>
+            <h4>AWS</h4>
+            <h4>Logo Design</h4>
+        </div>
+        <div class="footer3" style="padding-left: 100px;">
+            <h2>Links</h2><br>
+            <h4>About</h4>
+            <h4>Contacts</h4>
+            <h4>Advertise</h4>
+            <h4>Terms Of Service</h4>
+            <h4>Privacy Policy</h4>
+        </div>
+        <div class="footer4">
+            <h2 style="padding-top: 40px; padding-left: 100px;" >Contact</h2><br>
+            <div class="location">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>1st Floor, SPM Builders, H-129,<br>Housing Board Main Road,<br>Tenkasi-627811.</h4>
+            </div>
+            <div class="call">
+            <i class="fa-solid fa-phone"></i>
+            <h4 style="padding-right: 100px; padding-left: 30px;">+919840511886, <br> +91 8072988013</h4>
+
+        </div>
+    </div>
+    
+    </div>
+    <hr>
+        <div class="end">
+            <center><h4> © copyright Aruvi Institute. ALL RIGHTS RESERVED.</h4></center>
+        </div>
+                   
+
+</body>
+</html>

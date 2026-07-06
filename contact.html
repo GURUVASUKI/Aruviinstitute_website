@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Aruvi Institute of Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+        body{background:#f3f6f8;color:#1a1a1a;}
+        nav{display:flex;align-items:center;justify-content:space-between;padding:18px 30px;background:#232222;}
+        nav img{height:60px;width:80px;}
+        nav ul{display:flex;list-style:none;gap:18px;margin:0;padding:0;}
+        nav ul li{font-size:18px;}
+        nav ul li a{color:#fff;text-decoration:none;padding:12px 10px;display:inline-block;}
+        nav ul li a:hover{color:#51b76b;}
+        .hero{padding:70px 30px 30px;text-align:center;background:url('Home_images/home_bk.mp4') no-repeat center/cover;position:relative;}
+        .hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.5);}
+        .hero-content{position:relative;z-index:1;color:#fff;max-width:760px;margin:0 auto;}
+        .hero-content h1{font-size:44px;margin-bottom:14px;}
+        .hero-content p{font-size:18px;line-height:1.7;}
+        .contact-wrap{max-width:1120px;margin:0 auto;padding:50px 30px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;}
+        .card{background:#fff;padding:32px;border-radius:24px;box-shadow:0 18px 45px rgba(0,0,0,0.08);}
+        .card h2{font-size:28px;margin-bottom:18px;color:#1c8b50;}
+        .card p{color:#555;line-height:1.8;margin-bottom:22px;}
+        .field{margin-bottom:18px;}
+        .field input,.field textarea{width:100%;padding:16px 18px;border:1px solid #d3d7db;border-radius:12px;background:#f9fbfb;font-size:15px;outline:none;transition:border-color .2s ease;}
+        .field textarea{min-height:150px;resize:vertical;}
+        .field input:focus,.field textarea:focus{border-color:#1c8b50;}
+        .btn-submit{width:100%;padding:16px 0;border:none;border-radius:12px;background:#1c8b50;color:#fff;font-size:16px;cursor:pointer;transition:background .2s ease;}
+        .btn-submit:hover{background:#166c40;}
+        .info-list{display:grid;gap:18px;}
+        .info-item{display:flex;gap:16px;align-items:flex-start;}
+        .info-item i{font-size:26px;color:#1c8b50;margin-top:4px;}
+        .info-item div h4{margin-bottom:6px;font-size:18px;color:#202020;}
+        .info-item div p{color:#555;line-height:1.75;margin:0;}
+        .footer{margin-top:48px;padding:42px 30px 28px;background:#232222;color:#fff;display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;}
+        .footer div{max-width:320px;}
+        .footer h2{margin-bottom:14px;font-size:20px;color:#51b76b;}
+        .footer p, .footer a{color:#d9d9d9;text-decoration:none;line-height:1.8;font-size:14px;}
+        .social{display:flex;gap:14px;margin-top:12px;}
+        .social a{color:#d9d9d9;font-size:20px;}
+        .footer-bottom{text-align:center;width:100%;padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);margin-top:10px;font-size:14px;color:#aaa;}
+        @media(max-width:960px){.contact-wrap{grid-template-columns:1fr;} .hero{padding:70px 20px;}}        
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="Home_images/logos.png" alt="Aruvi logo">
+        <ul>
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./courses.html">Courses</a></li>
+            <li><a href="./service.html">Services</a></li>
+            <li><a href="./placement.html">Placement</a></li>
+            <li><a href="./gal.html">Gallery</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get in Touch with Aruvi Institute</h1>
+            <p>Have a question about courses, admissions, or training? Fill out the form below and our team will contact you shortly.</p>
+        </div>
+    </section>
+    <main class="contact-wrap">
+        <article class="card">
+            <h2>Send Us a Message</h2>
+            <p>Use the form to share your details and inquiry. We'll respond by email as soon as possible.</p>
+            <form action="mailto:info@aruviinstituteoflearning.com" method="post" enctype="text/plain">
+                <div class="field"><input type="text" name="name" placeholder="Full Name" required></div>
+                <div class="field"><input type="email" name="email" placeholder="Email Address" required></div>
+                <div class="field"><input type="tel" name="phone" placeholder="Phone Number"></div>
+                <div class="field"><textarea name="message" placeholder="Your Message" required></textarea></div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </article>
+        <aside class="card">
+            <h2>Contact Information</h2>
+            <div class="info-list">
+                <div class="info-item"><i class="fa-solid fa-location-dot"></i><div><h4>Visit Us</h4><p>1st Floor, SPM Builders, H-129, Housing Board Main Road, Tenkasi-627811</p></div></div>
+                <div class="info-item"><i class="fa-solid fa-phone"></i><div><h4>Call Us</h4><p>+91 98405 11886<br>+91 80729 88013</p></div></div>
+                <div class="info-item"><i class="fa-solid fa-envelope"></i><div><h4>Email</h4><p>info@aruviinstituteoflearning.com</p></div></div>
+                <div class="info-item"><i class="fa-solid fa-clock"></i><div><h4>Hours</h4><p>Mon - Sat: 9:00 AM - 6:00 PM</p></div></div>
+            </div>
+        </aside>
+    </main>
+    <footer class="footer">
+        <div>
+            <h2>Aruvi Institute of Learning</h2>
+            <p>We are specialized in designings and make your business a brand. Try our premium services today.</p>
+            <div class="social">
+                <a href="https://www.facebook.com/aruviinstitute.tenkasi"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/aruvi_python_learning/?utm_medium=copy_link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/c/AruviTechNews"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://x.com/AruviOf"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <div>
+            <h2>Quick Links</h2>
+            <p><a href="./about.html">About</a></p>
+            <p><a href="./courses.html">Courses</a></p>
+            <p><a href="./service.html">Services</a></p>
+        </div>
+        <div>
+            <h2>Need Help?</h2>
+            <p>Phone: +91 98405 11886</p>
+            <p>Email: info@aruviinstituteoflearning.com</p>
+        </div>
+        <div>
+            <h2>Location</h2>
+            <p>SPM Builders, H-129, Housing Board Main Road, Tenkasi</p>
+        </div>
+        <div class="footer-bottom">© 2026 Aruvi Institute. All rights reserved.</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com  -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="  crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Aruvi Institute of Learning</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- CSS -->
+
+    <style>
+
+         /* Style the Navigation bar*/
+ nav{
+    display: flex;
+    background-color: rgb(35, 34, 34);
+    padding-top:20px;
+    padding-bottom: 20px;
+    margin: 0px;
+  
+}
+nav img{
+    margin-left: 20px;
+    height: 60px;
+    width: 80px;
+}
+nav img:hover {
+    color:  green;filter: brightness(2);
+
+}     
+ nav ul{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 500px;
+    overflow: hidden;   
+ }
+ nav ul li{
+    float: left;
+    font-size: 20px;
+    padding-top:30px;
+ }
+ nav ul li a{
+    
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+   
+ }
+ 
+ nav ul li a:hover {
+    color: green;filter: brightness(2);
+ }
+
+
+
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+.main {
+  font-family: "Poppins", sans-serif;
+  height: 85vh;
+  width: 100%;
+}
+.wrapper,
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.slide {
+  overflow: hidden;
+}
+.slide::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+.slide .image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+ 
+}
+.slide .image-data {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+}
+
+.image-data span.text {
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+}
+.image-data h2 {
+  font-size: 45px;
+  font-weight: 600;
+  color: #fff;
+}
+
+
+
+/* swiper button css */
+.nav-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+.swiper-button-next {
+  right: 50px;
+}
+.swiper-button-prev {
+  left: 50px;
+}
+.nav-btn::before,
+.nav-btn::after {
+  font-size: 25px;
+  color: #fff;
+}
+.swiper-pagination-bullet {
+  opacity: 1;
+  height: 12px;
+  width: 12px;
+  background-color: #fff;
+  visibility: hidden;
+}
+.swiper-pagination-bullet-active {
+  border: 2px solid #fff;
+  background-color: #c87e4f;
+}
+@media screen and (max-width: 768px) {
+  .nav-btn {
+    visibility: hidden;
+  }
+  .swiper-pagination-bullet {
+    visibility: visible;
+  }
+}
+
+ /* youtube video */
+.youtube_video{
+  margin-top: 30px;
+}
+
+
+
+/* card */
+.container{
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 180px;
+  width: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  
+  
+}
+.container .card{
+  position: relative;
+  cursor: pointer;
+ 
+
+}
+.container .card .face{
+  width: 300px;
+  height: 200px;
+  transition: 0.5s;
+  border-radius: 20px;
+}
+.container .card .face.face1{
+  position: relative;
+  background: #eeeeebf1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+  border-left: 4px ridge rgb(247, 149, 165);
+  border-top: 4px ridge rgb(247, 149, 165);
+}
+.container .card:hover .face.face1{
+  background:rgb(247, 149, 165) ;
+  transform: translateY(0);
+  
+}
+.container .card .face.face1 .content{
+  opacity: 0.7;
+  transition: 0.5s;
+}
+.container .card:hover .face.face1 .content{
+  opacity: 1;
+}
+.container .card .face.face1 .content img{
+  max-width: 100px;
+}
+.container .card .face.face1 .content h3{
+  margin: 10px 0 0;
+  padding: 0;
+  color: #0f0f0f;
+  text-align: center;
+  font-size: 1.5em;
+}
+.container .card .face.face2{
+  position: relative;
+  background: #fff;
+  display: flex;
+  Justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+}
+.container .card:hover .face.face2{
+  transform: translateY(0);
+}
+.container .card .face.face2 .content p{
+  margin: 0;
+  padding: 8;
+}
+.container .card .face.face2 .content a{
+  margin: 15px 0 0;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  color: #0c0c0c;
+  padding: 5px;
+  border: 1px ridge rgb(247, 149, 165);
+  background-color: rgb(247, 149, 165);
+  margin-left: 80px;
+  border-radius: 30px;
+  
+}
+.container .card .face.face2 .content a:hover{
+  background: #333;
+  color: #ffffff;
+}
+
+/* counting number */
+.cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+
+}
+
+.counter-box {
+  padding: 30px;
+  text-align: center;
+  margin: 10px;
+  height: 250px;       
+  width: 350px;
+  border-top: 5px ridge #14141475;
+  border-left: 5px ridge #14141475;
+  border-right: 5px ridge #9c989875;
+  border-bottom: 5px ridge #9c989875;
+  box-shadow: 7px 7px 15px 4px #07020259;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50px;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+  background: #fadada10;
+ 
+}
+
+.counter {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+   
+}
+
+.label {
+  color: #3d3b3b;
+  font-size: 1em;
+  margin-top: 5px;
+ 
+ 
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .counter-box {
+      min-width: 100%; /* Full width on smaller screens */
+      margin: 10px 0;
+  }
+}
+
+/* company logos */
+.logos-container {
+  overflow: hidden;
+  padding: 60px 0;
+  white-space: nowrap;
+  position: relative;
+}
+.logo_heading{
+  margin-bottom: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+
+@keyframes slideEffect {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.logos {
+  display: inline-block;
+  animation: 50s slideEffect infinite linear;
+}
+.logos-container:hover .logos {
+  animation-play-state: paused;
+}
+.logos img {
+  max-height: 50px;
+  margin: 0 40px;
+  
+}
+
+/* review */
+.container_review{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+ 
+}
+.container_review h1{
+  font-size: 30px;
+  position: relative;
+  margin-bottom: 30px;
+
+}
+.content img{
+  position: relative;
+  height: 80px;
+  width: 100px;
+  align-items: center;
+}
+.container_review h3{
+  font-size: 30px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.container_review h1::after{
+  content: "";
+  width:150px;
+  height: 3px;
+  background:linear-gradient(to right,#e42315,#ec650b,#9934eb);
+  position: absolute;
+  bottom:-10px;
+  left:50%;
+  transform: translateX(-50%);
+}
+.Reviews_box{
+  width: 50%;
+  height: 300px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: -10px 10px 40px rgba(0,0,0,0.25);
+  overflow: hidden;
+
+  
+}
+#slide{
+  width:100%;
+  padding-right: 60px;
+  box-sizing: border-box;
+  position:absolute;
+  top:0;
+  left:0;
+  transition: 0.5s;
+}
+.card_review{
+  height: 300px;
+  color:#777;
+  line-height: 22px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  padding:40px;
+}
+.profile{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.profile img{
+  width:100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.profile h3{
+  color:#9934eb;
+  margin-bottom: 8px;
+  font-size: 21px;
+
+}
+.slidebar{
+  width: 60px;
+  height: 100%;
+  padding:15px 0px;
+  box-sizing: border-box;
+  background-color: #6b34eb;
+  position: absolute;
+  right: 0;
+  top:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.slidebar img{
+  width: 25px;
+  height: 25px;
+  padding:5px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.card_review::before{
+  content: "";
+  width: 110px;
+  height: 110px;
+  border-bottom-right-radius: 100%;
+  position: absolute;
+  background-color: #6b34eb;
+  top:0px;
+  left:0;
+  z-index: -1;
+}
+.card_review p{
+  font-size: 18px;
+}
+::selection{
+  color:white;
+  background-color: #6b34eb;
+}
+
+
+       /* Footer */
+
+       .footer{
+        margin-top: 20px;
+        display: flex;
+        background-color: rgb(35, 34, 34);
+        color: white;        
+        justify-content: space-around;
+        padding-bottom: 80px;
+        
+        
+    }
+    .footer1{
+        background-color: rgb(35, 34, 34);
+        color: green;
+        padding-left: 60px;
+        padding-top: 35px;
+        
+    }
+    .footer1 h4{color: white;
+    }
+   
+    .footer1 img:hover{
+        color: green; filter: brightness(2);
+    }
+     .footer1 i{
+        font-size: 30px;
+        padding-left: 20px;
+        color:green;
+    }
+
+   .footer1 i:hover {
+        color:green; filter: brightness(2);
+    }
+    .footer2{
+        margin-top: 40px;
+    }
+    .footer2 i{
+        padding-top: 20px;
+    }
+    .footer2 h2{
+        color: green; filter: brightness(2);
+    }
+    .footer3{
+        margin-top: 40px;
+       
+    }
+    .footer3 h2{
+        color: green; filter: brightness(2);
+    }
+  
+    .footer4 i{
+        padding-top: 20px;
+        font-size: 30px;
+        padding-left: 100px;
+    }
+    .footer4 h2{
+        color: green; filter: brightness(2);
+        padding-left: 20px;
+    }
+    .address{
+        padding-left: 160px;
+    }
+   .call{
+        display: flex;
+        justify-content: space-around;
+
+    }
+    .address h2{
+        color: green; filter: brightness(2);
+    }
+     .location{
+        display: flex;
+     }
+    .location i{
+        padding-left: 30px;
+        
+        
+    }
+    .location h4{
+        
+        padding-left: 50px;
+
+    }
+    .call{
+        display: flex;
+        padding-top: 30px;
+        
+    }
+    .call i{
+        padding-left: 30px;
+        padding-top: 10px;
+    }
+    .end{
+        background-color: rgb(35, 34, 34);
+        color: white;
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+    }
+       video{
+            position:fixed ;
+            width: 1500px;
+            right: 0;
+            bottom:0;
+            z-index: -1;
+        }
+
+    </style>
+  </head>
+  <body>
+    <nav>
+        <img src="Home_images/logos.png" alt="" height="60px" width="60px"  >
+         
+        <ul>
+            <b>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./courses.html">Courses</a></li>
+                <li><a href="./service.html">Services</a></li>
+                <li><a href="./placement.html">Placement</a></li>
+                <li><a href="./gal.html">Gallery</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </b>
+        </ul>
+    </nav>
+    
+    <video autoplay loop muted plays-inline>
+        <source src="Home_images/home_bk.mp4">
+    </video>
+
+    <section class="main swiper mySwiper">
+      <div class="wrapper swiper-wrapper">
+        <div class="slide swiper-slide">
+          <img src="Home_images/back-end.jpg" alt="" class="image" />
+            <div class="image-data"> 
+              <h2>Get Educated Online <br> From Your Home </h2>
+              <span class="text">Embrace the future of learning with our dynamic online classes, where cutting-edge technology <br> meets educational excellence at your convenience.</span>
+            </div>
+        </div>
+        <div class="slide swiper-slide">
+          <img src="Home_images/business A.jpg" alt="" class="image" />
+          <div class="image-data">
+            <h2>Classroom Training </h2>
+            <span class="text">"Immerse yourself in cutting-edge learning through our dynamic classroom training at our Institute,<br> where industry experts guide you to master tech skills in a collaborative <br> and hands-on environment."</span>
+           
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <img src="Home_images/cloud.jpg" alt="" class="image" />
+          <div class="image-data">
+            <h2> Web Development Services</h2>
+            <span class="text">Empower your tech institute's online presence with our expert web development services, <br> creating sleek and functional websites that showcase your institution's <br> innovation and educational excellence.</span>
+    
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+            <img src="Home_images/cloud.jpg" alt="" class="image" />
+            <div class="image-data">
+              <h2> Internship</h2>
+              <span class="text">Embark on a transformative learning journey with our institute's internship, where innovation <br> meets hands-on experience, empowering you to thrive in the dynamic <br> world of technology.</span>
+      
+            </div>
+          </div>
+      </div>
+      <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+
+    <center>
+        <div class="youtube_video">
+            <iframe  width="420" height="355"  src="https://www.youtube.com/embed/d55zdthfD_w?si=9dWARQzfGQLGKWcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="420" height="355" src="https://www.youtube.com/embed/9t9XuxFF4Xw?si=I7W3OGzmwEfi1oCy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="420" height="355" src="https://www.youtube.com/embed/dYNfMn3bMu0?si=aOXnMMguz-QQgxuz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        </div>
+    </center>
+
+    <!-- card -->
+    <div class="container">
+      <div class="card">
+          <div class="face face1">
+              <div class="content">
+                  <center><img src="H_card_image/skiled instructor.jpg"></center>
+                  <h3>Skilled Instructor</h3>
+              </div>
+          </div>
+          <div class="face face2">
+              <div class="content">
+                  <p>At Aruvi Institute of Learning, benefit from expert instruction at affordable course fees, with personalized mentorship for a comprehensive learning experience.</p>
+                  <a href="#">Read More</a>
+              </div>
+          </div>
+      </div>
+      <div class="card">
+          <div class="face face1">
+              <div class="content">
+                  <center><img src="H_card_image/flexibility.jpg"></center>
+                  <h3>Flexibility</h3>
+              </div>
+          </div>
+          <div class="face face2">
+              <div class="content">
+                  <p>At Aruvi Institute of Learning, choose your preferred schedule and mode of training with the added benefit of government certification for all our programs, ensuring a tailored and accredited learning experience.</p>
+                  <a href="#">Read More</a>
+              </div>
+          </div>
+      </div>
+      <div class="card">
+          <div class="face face1">
+              <div class="content">
+                  <center><img src="H_card_image/placement&project.jpg"></center>
+                  <h3>Live Project & Placement Support</h3>
+              </div>
+          </div>
+          <div class="face face2">
+              <div class="content">
+                  <p>Gain valuable real-time project experience at Aruvi Institute of Learning, enhancing your employability. Showcase your project expertise to boost your chances of securing a job, with the added advantage of placement support.</p>
+                  <a href="#">Read More</a>
+              </div>
+          </div>
+      </div>
+  </div>
+   
+    
+    <!-- Counting numbers -->
+    <div class="cont">
+      <div class="counter-box">
+          <img src="H_counting_numbers-pics/rating.png" alt="" height="100px" width="100px" >
+          <div class="counter" data-target="6">0</div>
+          <div class="label">Years of Experience</div>
+      </div>
+      <div class="counter-box">
+          <img src="H_counting_numbers-pics/graduation1.png" alt="" height="100px" width="100px">
+          <div class="counter" data-target="400">0</div>
+          <div class="label">Students Trained</div>
+      </div>
+      <div class="counter-box">
+          <img src="H_counting_numbers-pics/job-interview.png" alt="" height="100px" width="100px">
+          <div class="counter" data-target="350">0</div>
+          <div class="label">Students Placed in Job</div>
+      </div>
+  </div>
+
+  <script>
+      const counters = document.querySelectorAll('.counter');
+
+      counters.forEach(counter => {
+          const target = parseInt(counter.dataset.target);
+          const duration = 2000; // Animation duration in milliseconds
+          const increment = target / (duration / 16); // Increment per frame (approx. 60fps)
+          let count = 0;
+
+          function updateCounter() {
+              count += increment;
+              counter.textContent = Math.ceil(count); // Use Math.ceil to ensure it reaches the target
+
+              if (count < target) {
+                  requestAnimationFrame(updateCounter);
+              } else {
+                  counter.textContent = target; // Ensure final value is accurate
+              }
+          }
+
+          updateCounter();
+      });
+  </script>
+
+<!-- company logos -->
+  <div class="logos-container">
+      <h1 class="logo_heading">Places where our students got job</h1>
+      <div class="logos">
+          <img src="H_company logo/zoho3931a2fccf17cadaa4af62fab031db8e.jpg" alt="" />
+          <img src="H_company logo/SWOT Analysis of Tata Consultancy Services (TCS) 2022.jpg" alt="" />
+          <img src="H_company logo/Infosys BPM Is Hiring Process Executive _ Apply Now _ 2022.jpg" alt="" />
+          <img src="H_company logo/HCL.jpg" alt="" />
+          <img src="H_company logo/Atos Origin logo.jpg" alt="" />
+          
+      </div>
+  </div>
+  <script>
+      window.onload = function () {
+          // Check if the duplication has already been done
+          if (!document.querySelector('.logos').hasAttribute('data-cloned')) {
+              // Clone the logos element
+              var logosDiv = document.querySelector('.logos').cloneNode(true);
+              // Mark the original logos element as cloned to prevent future duplications
+              document.querySelector('.logos').setAttribute('data-cloned', 'true');
+              // Append the cloned element to the logos container
+              document.querySelector('.logos').parentNode.appendChild(logosDiv);
+          }
+      };
+  </script>
+
+  <!-- review -->
+  <div class="container_review">
+    <h1>TESTIMONIAL</h1>
+    <h3>Our Students Say!</h3>
+    <div class="Reviews_box">
+        <div id = "slide">
+            
+            <!--1-->
+            <div class="card_review">
+                <div class="profile">
+                    <img src="H_Stu_review/database E.jpg">
+                    <div>
+                        <h3>Amit Prajapati</h3>
+                        <p>Web Designer</p>
+                    </div>
+                </div>
+                <p>The courses are very easy to use and follow. I always received prompt friendly replies from my tutor. It was great experience to get training from Kani mam. She elaborate each and every topic in very simple manner so that we can understand easily. I am very satisfied with the course and results. I am so thankful for this opportunity..</p>
+            </div>
+
+            <!--2-->
+            <div class="card_review">
+                <div class="profile">
+                    <img src="H_Stu_review/cloud.jpg">
+                    <div>
+                        <h3>Amit Prajapati 2</h3>
+                        <p>JavaScript Developer</p>
+                    </div>
+                </div>
+                <p>Hi everyone, I joined the institute in 2019. I had little bit knowledge about C language only. I was newbie at python. This institue helped me a lot to learn many things about Python. Chairmakani mam is so kind hearted. She is good at handling new people like non computer background students also. One of best institute at Tenkasi to learn computer skills. Learn something with hope.</p>
+            </div>
+
+            <!--3-->
+            <div class="card_review">
+                <div class="profile">
+                    <img src="H_Stu_review/business A.jpg">
+                    <div>
+                        <h3>Amit Prajapati 3</h3>
+                        <p>Python Developer</p>
+                    </div>
+                </div>
+                <p>This tech institute truly stands out with its cutting-edge curriculum and hands-on approach to learning. The passionate and knowledgeable faculty members create an engaging and stimulating environment, fostering creativity and critical thinking. State-of-the-art facilities and industry partnerships provide students with real-world experience, enhancing their skills and employability.</p>
+            </div>
+
+
+
+        </div>
+
+        <div class="slidebar">
+            <img src="H_Review_arrow/upArrowb.png" id="upArrowb">
+            <img src="H_Review_arrow/downArrowb.png" id="downArrowb">
+        </div>
+    </div>
+</div>
+<script>
+    let slide = document.getElementById('slide');
+let upArrowb = document.getElementById('upArrowb');
+let downArrowb = document.getElementById('downArrowb');
+
+var a = 0;
+upArrowb.addEventListener('click' , ()=>{
+
+if(a < 0){
+a = a+300;
+slide.style.top=a+"px";
+
+}
+
+})
+
+downArrowb.addEventListener('click' , ()=>{
+
+if(a > "-900"){
+a = a - 300;
+slide.style.top=a+"px";
+
+}
+
+})
+</script>
+
+    <!-- Footer -->
+
+    <div class="footer">
+        <div class="footer1">
+            <h2 style="color: green;filter: brightness(2);">Aruvi Institue Of Learning</h2><br>
+            <h4>We are specialized in designings and  makes <br>your business a brand.Try our premium services.</h4>
+             <img src="Home_images/logos.png" height="60px" width="60px" alt=""  >
+             <a href="https://www.facebook.com/aruviinstitute.tenkasi"><i class="fa-brands fa-facebook"></i></a>
+             <a href="https://www.instagram.com/aruvi_python_learning/?utm_medium=copy_link"><i class="fa-brands fa-instagram"></i></a>
+             <a href="https://www.youtube.com/c/AruviTechNews"><i class="fa-brands fa-youtube"></i></a>
+             <a href="https://x.com/AruviOf"><i class="fa-brands fa-x-twitter"></i></a>
+             <a href="https://aruviinstituteoflearning.com/services#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <div class="footer2">
+            <h2>Services</h2><br>
+            <h4>Internship</h4>
+            <h4>Web Design</h4>
+            <h4>AWS</h4>
+            <h4>Logo Design</h4>
+        </div>
+        <div class="footer3" style="padding-left: 100px;">
+            <h2>Links</h2><br>
+            <h4>About</h4>
+            <h4>Contacts</h4>
+            <h4>Advertise</h4>
+            <h4>Terms Of Service</h4>
+            <h4>Privacy Policy</h4>
+        </div>
+        <div class="footer4">
+            <h2 style="padding-top: 40px; padding-left: 100px;" >Contact</h2><br>
+            <div class="location">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>1st Floor, SPM Builders, H-129,<br>Housing Board Main Road,<br>Tenkasi-627811.</h4>
+            </div>
+            <div class="call">
+            <i class="fa-solid fa-phone"></i>
+            <h4 style="padding-right: 100px; padding-left: 30px;">+919840511886, <br> +91 8072988013</h4>
+
+        </div>
+    </div>
+    
+    </div>
+    <hr>
+        <div class="end">
+            <center><h4> © copyright Aruvi Institute. ALL RIGHTS RESERVED.</h4></center>
+        </div>              
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
